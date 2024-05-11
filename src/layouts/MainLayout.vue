@@ -13,7 +13,6 @@ const themeModeButtonName = computed(() =>
     class="p-2 flex flex-row justify-between items-center rounded-b-lg border-2 bg-card text-card-foreground shadow-sm"
   >
     <div class="text-lg">{{ $t("Proyect Title") }}</div>
-    <!-- Arreglando Un Bug en una rama -->
     <p-btn
       variant="ghost"
       @click="toggleDark()"
