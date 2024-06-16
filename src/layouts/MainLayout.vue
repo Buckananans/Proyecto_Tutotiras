@@ -12,13 +12,5 @@ const themeModeButtonName = computed(() =>
   <header
     class="p-2 flex flex-row justify-between items-center rounded-b-lg border-2 bg-card text-card-foreground shadow-sm"
   >
-    <div class="text-lg">{{ $t("Proyect Title") }}</div>
-    <p-btn
-      variant="ghost"
-      @click="toggleDark()"
-      size="icon"
-    >
-      <p-icon :name="themeModeButtonName" />
-    </p-btn>
   </header>
 </template>

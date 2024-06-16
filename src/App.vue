@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import MainLayout from "./layouts/MainLayout.vue";
+import { useDark } from "@vueuse/core";
+
+const isDark = useDark();
 </script>
 
 <template>
-  <MainLayout />
   <RouterView />
 </template>
