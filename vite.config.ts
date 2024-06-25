@@ -7,12 +7,7 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig({
   plugins: [vue()],
   server: {
-    host: "proyecto.tutorias",
-    port: 8000,
-    https: {
-      cert: "proyecto.tutorias.pem",
-      key: "proyecto.tutorias-key.pem"
-    }
+    port: 8000
   },
   resolve: {
     alias: {

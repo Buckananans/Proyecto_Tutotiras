@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from "@/views/LoginView.vue";
 import { useUserStore } from "@/stores/userStore";
+import RegisterView from "@/views/RegisterView.vue";
 
 export const RouteTypes = {
   COMMON: "COMMON",
@@ -25,6 +26,14 @@ const router = createRouter({
       path: "/login",
       name: "Login",
       component: LoginView,
+      meta: {
+        type: RouteTypes.AUTH
+      }
+    },
+    {
+      path: "/register",
+      name: "Register",
+      component: RegisterView,
       meta: {
         type: RouteTypes.AUTH
       }

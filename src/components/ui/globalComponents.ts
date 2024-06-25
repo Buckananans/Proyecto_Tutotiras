@@ -31,7 +31,7 @@ export const registerComponents = (app: App) => {
   app.component("PFormDescription", FormDescription);
   app.component("PFormItem", FormItem);
   app.component("PSelect", Select);
-  app.component("PSelectTtrigger", SelectTrigger);
+  app.component("PSelectTrigger", SelectTrigger);
   app.component("PSelectValue", SelectValue);
   app.component("PSelectItem", SelectItem);
   app.component("PSelectContent", SelectContent);

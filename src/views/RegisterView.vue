@@ -7,11 +7,14 @@ import router from "@/router";
 import { toTypedSchema } from "@vee-validate/zod";
 const registerSchema = toTypedSchema(
   z.object({
+    name: z.string().trim().min(1, { message: "Required Field" }),
+    lastName: z.string().trim().min(1, { message: "Required Field" }),
     email: z.string().email({ message: "Email must be valid" }),
     password: z
       .string()
       .trim()
-      .min(8, { message: "Password should be at least 8 characters long" })
+      .min(8, { message: "Password should be at least 8 characters long" }),
+    userRole: z.string().min(1, { message: "Required Field" })
   })
 );
 
@@ -21,10 +24,8 @@ const { handleSubmit } = useForm({
 
 const onSubmit = handleSubmit(async val => {
   try {
-    const { data } = await api.post("/auth/login", val);
-    api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
-    localStorage.setItem("token", data.token);
-    router.push("/");
+    await api.post("/auth/signup", val);
+    router.push("/login");
   } catch (error) {
     console.log(error);
   }
@@ -46,6 +47,32 @@ const onSubmit = handleSubmit(async val => {
         @submit.prevent="onSubmit"
         class="flex flex-col justify-center w-full gap-3"
       >
+        <p-form-field
+          v-slot="{ componentField }"
+          name="name"
+          ><p-form-item
+            ><p-form-control
+              ><p-input
+                type="text"
+                placeholder="Name"
+                v-bind="componentField"
+            /></p-form-control>
+            <p-form-message /> </p-form-item
+        ></p-form-field>
+
+        <p-form-field
+          v-slot="{ componentField }"
+          name="lastName"
+          ><p-form-item
+            ><p-form-control
+              ><p-input
+                type="text"
+                placeholder="Last Name"
+                v-bind="componentField"
+            /></p-form-control>
+            <p-form-message /> </p-form-item
+        ></p-form-field>
+
         <p-form-field
           v-slot="{ componentField }"
           name="email"
@@ -72,7 +99,30 @@ const onSubmit = handleSubmit(async val => {
             <p-form-message /> </p-form-item
         ></p-form-field>
 
-        <p-btn type="submit"> Login </p-btn>
+        <p-form-field
+          v-slot="{ componentField }"
+          name="userRole"
+        >
+          <p-form-item>
+            <p-select v-bind="componentField">
+              <p-form-control>
+                <p-select-trigger>
+                  <p-select-value placeholder="Role" />
+                </p-select-trigger>
+              </p-form-control>
+
+              <p-select-content>
+                <p-select-group>
+                  <p-select-item value="ADVISOR"> Advisor </p-select-item>
+
+                  <p-select-item value="STUDENT"> Student </p-select-item>
+                </p-select-group>
+              </p-select-content>
+            </p-select>
+          </p-form-item>
+        </p-form-field>
+
+        <p-btn type="submit"> Register </p-btn>
       </form>
     </div>
   </main>
