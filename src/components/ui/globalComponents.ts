@@ -10,6 +10,15 @@ import {
   FormLabel,
   FormMessage
 } from "./form";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue
+} from "./select";
 
 export const registerComponents = (app: App) => {
   app.component("PBtn", Button);
@@ -21,4 +30,11 @@ export const registerComponents = (app: App) => {
   app.component("PFormMessage", FormMessage);
   app.component("PFormDescription", FormDescription);
   app.component("PFormItem", FormItem);
+  app.component("PSelect", Select);
+  app.component("PSelectTtrigger", SelectTrigger);
+  app.component("PSelectValue", SelectValue);
+  app.component("PSelectItem", SelectItem);
+  app.component("PSelectContent", SelectContent);
+  app.component("PSelectGroup", SelectGroup);
+  app.component("PSelectLabel", SelectLabel);
 };
