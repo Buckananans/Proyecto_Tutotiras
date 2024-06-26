@@ -26,6 +26,13 @@ import {
 } from "./dropdown-menu";
 import DropdownMenuContent from "./dropdown-menu/DropdownMenuContent.vue";
 import { Calendar } from "./calendar";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from "./dialog";
 
 export const registerComponents = (app: App) => {
   app.component("PBtn", Button);
@@ -49,4 +56,9 @@ export const registerComponents = (app: App) => {
   app.component("PDropdownMenuItem", DropdownMenuItem);
   app.component("PDropdownMenuContent", DropdownMenuContent);
   app.component("PCalendar", Calendar);
+  app.component("PDialog", Dialog);
+  app.component("PDialogContent", DialogContent);
+  app.component("PDialogFooter", DialogFooter);
+  app.component("PDialogHeader", DialogHeader);
+  app.component("PDialogTitle", DialogTitle);
 };
