@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "@/views/LoginView.vue";
 import { useUserStore } from "@/stores/userStore";
 import RegisterView from "@/views/RegisterView.vue";
+import CalendarView from "@/views/CalendarView.vue";
 
 export const RouteTypes = {
   COMMON: "COMMON",
@@ -37,6 +38,14 @@ const router = createRouter({
       meta: {
         type: RouteTypes.AUTH
       }
+    },
+    {
+      path: "/calendar/:id",
+      name: "Calendar",
+      component: CalendarView,
+      meta: {
+        type: RouteTypes.COMMON
+      }
     }
   ]
 });
@@ -44,9 +53,13 @@ const router = createRouter({
 router.beforeEach(async to => {
   const userStore = useUserStore();
   await userStore.getUser();
-  const { user } = userStore;
-  if (user) {
-    if (to.meta.type !== RouteTypes.COMMON && to.meta.type !== user.userRole)
+
+  console.log(userStore.user);
+  if (userStore.user) {
+    if (
+      to.meta.type !== RouteTypes.COMMON &&
+      to.meta.type !== userStore.user.userRole
+    )
       return { name: "Home" };
   } else {
     if (to.meta.type !== RouteTypes.AUTH) return { name: "Login" };

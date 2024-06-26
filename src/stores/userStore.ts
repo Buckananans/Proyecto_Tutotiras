@@ -13,9 +13,14 @@ export type User = {
 
 export const useUserStore = defineStore("user", () => {
   const user = ref<User | null>(null);
-
+  const removeUser = () => {
+    user.value = null;
+    localStorage.removeItem("token");
+    api.defaults.headers.common["Authorization"] = undefined;
+  };
   return {
     user,
+    removeUser,
     async getUser() {
       try {
         const response = await api.get("/auth/authUser");

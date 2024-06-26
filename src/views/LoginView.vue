@@ -74,6 +74,14 @@ const onSubmit = handleSubmit(async val => {
 
         <p-btn type="submit"> Login </p-btn>
       </form>
+
+      <div class="w-full p-5">
+        <p-btn
+          variant="link"
+          @click="router.push('/register')"
+          >Register</p-btn
+        >
+      </div>
     </div>
   </main>
 </template>
