@@ -33,6 +33,7 @@ import {
   DialogHeader,
   DialogTitle
 } from "./dialog";
+import { Card } from "./card";
 
 export const registerComponents = (app: App) => {
   app.component("PBtn", Button);
@@ -61,4 +62,5 @@ export const registerComponents = (app: App) => {
   app.component("PDialogFooter", DialogFooter);
   app.component("PDialogHeader", DialogHeader);
   app.component("PDialogTitle", DialogTitle);
+  app.component("PCard", Card);
 };
