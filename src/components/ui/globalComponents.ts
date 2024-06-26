@@ -19,6 +19,12 @@ import {
   SelectTrigger,
   SelectValue
 } from "./select";
+import {
+  DropdownMenu,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from "./dropdown-menu";
+import DropdownMenuContent from "./dropdown-menu/DropdownMenuContent.vue";
 
 export const registerComponents = (app: App) => {
   app.component("PBtn", Button);
@@ -37,4 +43,8 @@ export const registerComponents = (app: App) => {
   app.component("PSelectContent", SelectContent);
   app.component("PSelectGroup", SelectGroup);
   app.component("PSelectLabel", SelectLabel);
+  app.component("PDropdownMenu", DropdownMenu);
+  app.component("PDropdownMenuTrigger", DropdownMenuTrigger);
+  app.component("PDropdownMenuItem", DropdownMenuItem);
+  app.component("PDropdownMenuContent", DropdownMenuContent);
 };
