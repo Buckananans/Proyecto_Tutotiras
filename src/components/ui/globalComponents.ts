@@ -25,6 +25,7 @@ import {
   DropdownMenuTrigger
 } from "./dropdown-menu";
 import DropdownMenuContent from "./dropdown-menu/DropdownMenuContent.vue";
+import { Calendar } from "./calendar";
 
 export const registerComponents = (app: App) => {
   app.component("PBtn", Button);
@@ -47,4 +48,5 @@ export const registerComponents = (app: App) => {
   app.component("PDropdownMenuTrigger", DropdownMenuTrigger);
   app.component("PDropdownMenuItem", DropdownMenuItem);
   app.component("PDropdownMenuContent", DropdownMenuContent);
+  app.component("PCalendar", Calendar);
 };
